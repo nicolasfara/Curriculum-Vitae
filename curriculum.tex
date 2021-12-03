@@ -28,9 +28,7 @@
 
 \moderncvstyle{casual} % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
 \moderncvcolor{grey} % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
-\usepackage{multicol}
-\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
-\usepackage[hyperref]{}
+\usepackage[utf8]{inputenc}
 \usepackage[scale=0.85]{geometry} % Reduce document margins
 %\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
 %\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
@@ -39,8 +37,7 @@
 %	NAME AND CONTACT INFORMATION SECTION
 %----------------------------------------------------------------------------------------
 
-\firstname{Nicolas} % Your first name
-\familyname{Farabegoli} % Your last name
+\name{Nicolas}{Farabegoli} % Your last name
 
 % All information in this block is optional, comment out any lines you don't need
 %\title{Curriculum Vitae}
@@ -50,8 +47,8 @@
 %\fax{(000) 111 1113}
 \email{nicolas.farabegoli@gmail.com}
 %\email{nicolas.farabegoli2@unibo.it}
-\homepage{nicolasfarabegoli.it}{www.nicolasfarabegoli.it} % The first argument is the url for the clickable link, the second argument is the url displayed in the template - this allows special characters to be displayed such as the tilde in this example
-\extrainfo{\href{https://github.com/nicolasfara}{Github: nicolasfara}}
+\homepage{nicolasfarabegoli.it} % The first argument is the url for the clickable link, the second argument is the url displayed in the template - this allows special characters to be displayed such as the tilde in this example
+\social[github]{nicolasfara}
 %\photo[70pt][0.4pt]{pictures/picture} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
 %\quote{"A witty and playful quotation" - John Smith}
 
@@ -60,31 +57,10 @@
 \begin{document}
 
 %----------------------------------------------------------------------------------------
-%	COVER LETTER
-%----------------------------------------------------------------------------------------
-
-% To remove the cover letter, comment out this entire block
-
-%\recipient{HR Department}{Corporation\\123 Pleasant Lane\\12345 City, State} % Letter recipient
-%\date{\today} % Letter date
-%\opening{Dear Sir or Madam,} % Opening greeting
-%\closing{Sincerely yours,} % Closing phrase
-%\enclosure[Attached]{curriculum vit\ae{}} % List of enclosed documents
-%
-%\makelettertitle % Print letter title
-%
-%\lipsum[1-2] % Dummy text
-%\lipsum[4] % Dummy text
-%
-%\makeletterclosing % Print letter signature
-%
-%\newpage
-
-%----------------------------------------------------------------------------------------
 %	CURRICULUM VITAE
 %----------------------------------------------------------------------------------------
 
-\makecvtitle % Print the CV title
+\makecvtitle
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION SECTION
@@ -92,12 +68,13 @@
 
 \section{Education}
 
-\cventry{2011--2016}{Technic high school}{ITT B. Pascal}{Cesena (FC), Italy}{}{Elettronics specializzation}  % Arguments not required can be left empty
+\cventry{2011--2016}{Technic high school}{ITT B. Pascal}{Cesena (FC), Italy}{}{Elettronics specializzation}
 \cventry{2016--2020}{Bachelor degree}{Università di Bologna}{Cesena (FC), Italy}{\newline Ingegneria e Scienze Informatiche}{
-\begin{itemize}
-    \item Thesis: Optimized implementation of Dirac's operator on GPGPU
-    \item Supervisor: Moreno Marzolla
-\end{itemize}}
+    \begin{itemize}
+        \item Thesis: Optimized implementation of Dirac's operator on GPGPU
+        \item Supervisor: Moreno Marzolla
+    \end{itemize}
+}
 
 \cventry{2021--Ongoing}{Master degree}{Università di Bologna}{Cesena (FC), Italy}{\newline Ingegneria e Scienze Informatiche}{Ongoing}
 
@@ -108,65 +85,71 @@
 \section{Experience}
 
 \cventry{Jun~2015--Aug~2015}{Embedded Systems Internship}{\textsc{General System}}{}{}{
-\begin{itemize}
-\item Developed a system for remote control of an embedded board.
-\item Developed and tested industrial switchboards.
-\item Developed access control based on RFID technology and Arduino.
-\end{itemize}
+    \begin{itemize}
+        \item Developed a system for remote control of an embedded board.
+        \item Developed and tested industrial switchboards.
+        \item Developed access control based on RFID technology and Arduino.
+    \end{itemize}
 }
 
 \section{Tutoring}
 
-\cventry{Mar~2022--Sep~2022}{Algoritmi e Strutture Dati}{Università di Bologna}{Cesena (FC), Italy}{}{Module A--B}
-
+\cventry{Mar~2022--Sep~2022}{Algoritmi e Strutture Dati}{Università di Bologna}{Cesena (FC), Italy}{}{Module A-B}
 \cventry{Mar~2021--Sep~2021}{Algoritmi e Strutture Dati}{Università di Bologna}{Cesena (FC), Italy}{}{Module B}
 
 %------------------------------------------------
-
-%\cventry{2011--2012}{Summer Intern}{\textsc{Lehman Brothers}}{Los Angeles}{}{Rated "truly distinctive" for Analytical Skills and Teamwork.}
-
+%   Projects
 %------------------------------------------------
 
 \section{Projects}
 
-\cventry{Sep~2020--Mar~2021}{Unibo Motorsport}{Bologna (BO), Italy}{}{}{
-E-Powertrain division member
-}
-
+\cventry{Sep~2020--Mar~2021}{Unibo Motorsport}{Bologna (BO), Italy}{}{}{E-Powertrain division member}
 \cventry{Jan~2016--Feb~2019}{CeSeNA Security Team}{Cesena (FC), Italy}{}{}{
-\begin{itemize}
-\item Active member
-\item Experience reverse engineering (binary reversing)
-\end{itemize}
+    \begin{itemize}
+        \item Active member
+        \item Experience reverse engineering (binary reversing)
+    \end{itemize}
 }
-
 \cventry{Sep~2014--Jul~2017}{FabLab Romagna}{Cesena (FC), Italy}{}{}{
 During the period I developed several prototypes with Arduino and Raspberry, did team projects for events and exhibitions. I have also been involved in:
-\begin{itemize}
-\item Organization and improvement of the laboratory with new tools and equipment.
-\item Seminar ``Basic introduction to Electronics and it's components''
-\item Participation in the organization of the event \textit{Rimini Beach Mini Maker Faire} (2015).
-\end{itemize}}
+    \begin{itemize}
+        \item Organization and improvement of the laboratory with new tools and equipment.
+        \item Seminar ``Basic introduction to Electronics and it's components''
+        \item Participation in the organization of the event \textit{Rimini Beach Mini Maker Faire} (2015).
+    \end{itemize}
+}
 
 %----------------------------------------------------------------------------------------
 %   COMPUTER SKILLS SECTION
 %----------------------------------------------------------------------------------------
 
+\newpage
+
 \section{Skills}
 
-\cvitem{Languages}{C/C++, Python(A), C/C++(B), SQL(B)}
-\cvitem{Frameworks}{Keras, PyTorch, Tensorflow}
-\cvitem{WebD}{HTML/CSS, JavaScript, Jekyll}
-\cvitem{Utilities}{Anaconda, Git, Sublime Text, Jupyter Notebook}
-\cvitem{Languages}{English(SRW), Hindi(SRW), Japanese(SO)}
+\cvitem{\textit{Self evaluation skill}}{
+    \begin{itemize} % TODO(Improve those items)
+        \item 1 --- \textit{Small exeprience, understand simple programs, make some changes to existing programs}
+        \item 2 --- \textit{Medium experience, can write some line of code without any help}
+        \item 3 --- \textit{Daily experience, can use some language feature without any help}
+        \item 4 --- \textit{Advanced experience, can write idiomatic program with nontrivial throbleshooting}
+        \item 5 --- \textit{Master experience, can write advanced and large scale programs with nontrivial behaviuors}
+    \end{itemize}
+}
+
+\cvitem{Languages}{C/C++ (2), Java (4), Kotlin (3), Python (3), TypeScript (3), Scala (4), Ruby (1)}
+\cvitem{Frameworks}{Cuda (2), Keras (1), Tensorflow (1)}
+\cvitem{Utilities}{Git (4), Jupyter Notebook (2)}
+\cvitem{Languages}{English, Italian}
+\cvitem{O.S.}{GNU Linux, Mac, Windows}
 
 %----------------------------------------------------------------------------------------
 %   Open Source Contributions
 %----------------------------------------------------------------------------------------
 
 \section{Contribution to Open Source projects}
-\cvitem{\href{https://github.com/atedeg/ecscala}{ECScala}}{Co-developer of the project and repo mantainer -- 2021.}
-\cvitem{\href{https://gitlab.com/nic0lasfara/dirac-operator}{dirac-operator}}{Developed an optimized CUDA version of the Dirac operator -- 2019/20.}
+\cvitem{\href{https://github.com/atedeg/ecscala}{ECScala}}{Co-developer of the project and repo mantainer --- 2021.}
+\cvitem{\href{https://gitlab.com/nic0lasfara/dirac-operator}{dirac-operator}}{Developed an optimized CUDA version of the Dirac operator --- 2019/20.}
 
 
 %----------------------------------------------------------------------------------------
@@ -181,6 +164,5 @@ During the period I developed several prototypes with Arduino and Raspberry, did
 \cvlistdoubleitem{Tennis}{Beach Tennis}
 \cvlistdoubleitem{Hacking software and hardware}{Elettronics}
 \cvlistdoubleitem{Open Source enthusiast and contributor}{Linux world}
-%----------------------------------------------------------------------------------------
 
 \end{document}
