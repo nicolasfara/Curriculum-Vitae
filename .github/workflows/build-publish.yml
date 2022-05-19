@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup TeXLive environment
-        uses: xu-cheng/texlive-action/small@v1
+        uses: xu-cheng/texlive-action/full@v1
         with:
           run: |
             apk add make
