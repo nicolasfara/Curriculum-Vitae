@@ -21,21 +21,6 @@ jobs:
 
       - name: "Checkout the repo"
         uses: actions/checkout@v3
-
-      - name: Setup TeXLive environment
-        uses: xu-cheng/texlive-action/full@v1
-        with:
-          run: |
-            apk add make
-            make
-
-  release:
-    needs: [build_latex]
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Checkout the repo"
-        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
@@ -43,10 +28,19 @@ jobs:
         shell: bash
         run: git fetch --tags -f
 
-      - name: Autotag
-        uses: DanySK/semver-autotag-action@0.1.0
+      - name: Setup TeXLive environment
+        uses: xu-cheng/texlive-action/full@v1
+        with:
+          run: |
+            apk add make
+            make
       
+      - name: Release
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        uses: DanySK/semver-autotag-action@0.1.0
+
       - name: Release artefacts
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
