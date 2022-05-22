@@ -1,12 +1,12 @@
 all: it en
 
-SOURCES: cv.tex
+SOURCES: awesome_cv.tex
 
 it: ${SOURCES}
-	latexmk -jobname=cv_it -pdf -pdflatex='pdflatex %O -interaction=nonstopmode -synctex=1 "\newif\ifen\newif\ifit\ittrue\input{%S}"' cv
+	latexmk -jobname=cv_it -pdf -pdflatex='xelatex %O -interaction=nonstopmode -synctex=1 "\newif\ifen\newif\ifit\ittrue\input{%S}"' awesome_cv
 
 en: ${SOURCES}
-	latexmk -jobname=cv_en -pdf -pdflatex='pdflatex %O -interaction=nonstopmode -synctex=1 "\newif\ifen\newif\ifit\entrue\input{%S}"' cv
+	latexmk -jobname=cv_en -pdf -pdflatex='xelatex %O -interaction=nonstopmode -synctex=1 "\newif\ifen\newif\ifit\entrue\input{%S}"' awesome_cv
 
 clean:
-	rm -f *{aux,bbl,bcf,blg,fdb_latexmk,fls,log,xml,gz,out}
+	rm -f *{aux,bbl,bcf,blg,fdb_latexmk,fls,log,xml,gz,out,pdf}
