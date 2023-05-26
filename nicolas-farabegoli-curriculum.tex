@@ -1,0 +1,377 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Simple LaTeX CV Template %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NOTE: If you find that it says                                     %%
+%%                                                                    %%
+%%                           1 of ??                                  %%
+%%                                                                    %%
+%% at the bottom of your first page, this means that the AUX file     %%
+%% was not available when you ran LaTeX on this source. Simply RERUN  %%
+%% LaTeX to get the ``??'' replaced with the number of the last page  %%
+%% of the document. The AUX file will be generated on the first run   %%
+%% of LaTeX and used on the second run to fill in all of the          %%
+%% references.                                                        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Don't like 10pt? Try 11pt or 12pt
+\documentclass[10pt]{article}
+\immediate\write18{./setup_ruby.sh}
+\immediate\write18{./scholar_scraper.rb}
+\newcommand{\sapere}{\texttt{SAPERE}}
+\newcommand{\doititle}[2]{\href{http://dx.doi.org/#1}{#2}}
+
+% This is a helpful package that puts math inside length specifications
+\usepackage{calc}
+\usepackage[utf8]{inputenc} % Consente l'uso caratteri accentati italiani
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage[hyphens]{url}
+\usepackage[
+backend=biber,
+style=ieee,
+sorting=ynt,
+url=false,
+defernumbers=true,
+bibencoding=utf8
+]{biblatex}
+\usepackage[hidelinks]{hyperref}
+\usepackage{underscore}
+% \usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\hypersetup{
+    colorlinks,
+    breaklinks,
+    linkcolor=darkblue,
+    urlcolor=darkblue,
+    anchorcolor=darkblue,
+    citecolor=darkblue
+}
+\addbibresource{bibliography.bib}
+
+% Layout: Puts the section titles on left side of page
+\reversemarginpar
+
+%
+%         PAPER SIZE, PAGE NUMBER, AND DOCUMENT LAYOUT NOTES:
+%
+% The next \usepackage line changes the layout for CV style section
+% headings as marginal notes. It also sets up the paper size as either
+% letter or A4. By default, letter was used. If A4 paper is desired,
+% comment out the letterpaper lines and uncomment the a4paper lines.
+%
+% As you can see, the margin widths and section title widths can be
+% easily adjusted.
+%
+% ALSO: Notice that the includefoot option can be commented OUT in order
+% to put the PAGE NUMBER *IN* the bottom margin. This will make the
+% effective text area larger.
+%
+% IF YOU WISH TO REMOVE THE ``of LASTPAGE'' next to each page number,
+% see the note about the +LP and -LP lines below. Comment out the +LP
+% and uncomment the -LP.
+%
+% IF YOU WISH TO REMOVE PAGE NUMBERS, be sure that the includefoot line
+% is uncommented and ALSO uncomment the \pagestyle{empty} a few lines
+% below.
+%
+
+\usepackage[paper=a4paper,
+           %includefoot, % Uncomment to put page number above margin
+           marginparwidth=30.5mm,    % Length of section titles
+           marginparsep=1.5mm,       % Space between titles and text
+           margin=25mm,              % 25mm margins
+           includemp]{geometry}
+
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+%% This gives us fun enumeration environments. compactitem will be nice.
+\usepackage{paralist}
+
+%% Reference the last page in the page number
+%
+% NOTE: comment the +LP line and uncomment the -LP line to have page
+%       numbers without the ``of ##'' last page reference)
+%
+% NOTE: uncomment the \pagestyle{empty} line to get rid of all page
+%       numbers (make sure includefoot is commented out above)
+%
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+%\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+                    \arabic{page} of \protect\pageref*{LastPage} % +LP
+%                    \arabic{page}                               % -LP
+                    \hfill \,}}
+
+% Finally, give us PDF bookmarks
+\usepackage{color}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The title (name) with a horizontal rule under it
+% (optional argument typesets an object right-justified across from name
+%  as well)
+%
+% Usage: \makeheading{name}
+%        OR
+%        \makeheading[right_object]{name}
+%
+% Place at top of document. It should be the first thing.
+% If ``right_object'' is provided in the square-braced optional
+% argument, it will be right justified on the same line as ``name'' at
+% the top of the CV. For example:
+%
+%       \makeheading[\emph{Curriculum vitae}]{Your Name}
+%
+% will put an emphasized ``Curriculum vitae'' at the top of the document
+% as a title. Likewise, a picture could be included:
+%
+%   \makeheading[\includegraphics[height=1.5in]{my_picutre}]{Your Name}
+%
+% the picture will be flush right across from the name.
+\newcommand{\makeheading}[2][]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+             {\large \bfseries #2 \hfill #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+% The section headings
+%
+% Usage: \section{section name}
+%
+% Follow this section IMMEDIATELY with the first line of the section
+% text. Do not put whitespace in between. That is, do this:
+%
+%       \section{My Information}
+%       Here is my information.
+%
+% and NOT this:
+%
+%       \section{My Information}
+%
+%       Here is my information.
+%
+% Otherwise the top of the section header will not line up with the top
+% of the section. Of course, using a single comment character (%) on
+% empty lines allows for the function of the first example with the
+% readability of the second example.
+\renewcommand{\section}[2]%
+        {\pagebreak[3]\vspace{1.3\baselineskip}%
+         \phantomsection\addcontentsline{toc}{section}{#1}%
+         \hspace{0in}%
+         \marginpar{
+         \raggedright \scshape #1}#2}
+
+% An itemize-style list with lots of space between items
+\newenvironment{outerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1]}{\end{itemize}%
+         \vspace{-.6\baselineskip}}
+
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{lonelist}[1][\enskip\textbullet]%
+        {\vspace{-\baselineskip}\begin{list}{#1}{%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{list}\vspace{-.6\baselineskip}}
+
+% An itemize-style list with little space between items
+\newenvironment{innerlist}[1][\enskip\textbullet]%
+        {\begin{compactitem}[#1]}{\end{compactitem}}
+
+% An environment IDENTICAL to innerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{loneinnerlist}[1][\enskip\textbullet]%
+        {\vspace{-\baselineskip}\begin{compactitem}[#1]}
+        {\end{compactitem}\vspace{-.6\baselineskip}}
+
+% To add some paragraph space between lines.
+% This also tells LaTeX to preferably break a page on one of these gaps
+% if there is a needed pagebreak nearby.
+\newcommand{\blankline}{\quad\pagebreak[3]}
+\newcommand{\halfblankline}{\quad\vspace{-0.5\baselineskip}\pagebreak[3]}
+
+% Uses hyperref to link DOI
+\newcommand\doilink[1]{\href{http://dx.doi.org/#1}{#1}}
+\newcommand\doi[1]{doi:\doilink{#1}}
+
+% For \url{SOME_URL}, links SOME_URL to the url SOME_URL
+\providecommand*\url[1]{\href{#1}{#1}}
+% Same as above, but pretty-prints SOME_URL in teletype fixed-width font
+\renewcommand*\url[1]{\href{#1}{\texttt{#1}}}
+
+% For \email{ADDRESS}, links ADDRESS to the url mailto:ADDRESS
+\providecommand*\email[1]{\href{mailto:#1}{#1}}
+% Same as above, but pretty-prints ADDRESS in teletype fixed-width font
+%\renewcommand*\email[1]{\href{mailto:#1}{\texttt{#1}}}
+
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    \TeX}}
+\providecommand\BibTeX{{B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    \TeX}}
+\providecommand\Matlab{\textsc{Matlab}}
+
+\newcommand{\shortcourse}[6]{
+    \href{#1}{\textit{\textbf{#2}}},
+    \href{#3}{#4},
+    \href{#5}{#6}}
+
+\newcommand{\course}[9]{
+    \shortcourse{#1}{#2}{#3}{#4}{#5}{#6},
+    #7,
+    #8.
+    \textit{#9}
+}
+
+\newcommand{\shortunibocourse}[4]{
+    \shortcourse{#1}{#2}
+    {http://www.unibo.it}{Alma Mater Studiorum---Università di Bologna}
+    {#3}{#4}}
+
+\newcommand{\unibocourse}[7]{
+    \course{#1}{#2}
+    {http://www.unibo.it}{Alma Mater Studiorum---Università di Bologna}
+    {#3}{#4}
+    {#5}
+    {#6}{#7}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\macrosection}[1]{
+
+\vspace{20pt}
+\hrulefill
+\begin{center}
+\textbf{#1}
+\end{center}
+\vspace{-7pt}
+\hrulefill
+}
+
+\begin{document}
+\makeheading{Nicolas Farabegoli}
+
+\section{Contacts}
+%
+% NOTE: Mind where the & separators and \\ breaks are in the following
+%       table.
+%
+% ALSO: \rcollength is the width of the right column of the table
+%       (adjust it to your liking; default is 1.85in).
+%
+\newlength{\rcollength}\setlength{\rcollength}{2.5in}%
+%
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}                          
+Via dell'Università, 50    & \textit{Cell:} +39 3402876022\\
+47522 Cesena (FC)          & \textit{E-mail:} \email{nicolas.farabegoli@unibo.it}\\
+Italy                      & \textit{WWW:} \href{https://www.nicolasfarabegoli.it/}{www.nicolasfarabegoli.it}\\
+\end{tabular}
+
+\section{Citizenship}
+Italy
+
+\section{Current placement}
+\textbf{University of Bologna, Department of Computer Science and Engineering} \hfill 
+\begin{outerlist}
+    \item Research fellow\\\emph{Assegnista di ricerca}
+    \item Teaching tutor\\\emph{Tutor didattico}
+\end{outerlist}
+
+\newpage
+
+\macrosection{EDUCATION AND CARREER}
+
+\section{Education}
+%
+\href{https://disi.unibo.it/it}{\textbf{Department of Computer Science and Engineering, Università di Bologna}}, Cesena (FC), Italy
+\begin{outerlist}
+    \item[] M.S.,
+            \href{https://corsi.unibo.it/laurea/IngegneriaScienzeInformatiche}{Computer Science and Engineering}, March 2023
+            \begin{innerlist}
+                \item \emph{110L/100 - Magna cum Laude}
+                \item Thesis Topic: \emph{Design and implementation of a portable framework for applicationd decomposition and deployment in edge-cloud systems}
+                \item Supervisors:
+                      \href{https://www.unibo.it/sitoweb/mirko.viroli}{Prof. Mirko Viroli}, \href{https://www.unibo.it/sitoweb/danilo.pianini}{Prof. Danilo Pianini}
+                \item Area of study: Pervasive Computing
+            \end{innerlist}
+    \item[] B.S.,
+            \href{https://corsi.unibo.it/magistrale/IngegneriaScienzeInformatiche}{Computer Science and Engineering}, March 2020
+            \begin{innerlist}
+                \item Thesis Topic: \emph{Optimized implementation of the Dirac Operator on GPGPU}
+                \item Supervisor:
+                      \href{https://www.unibo.it/sitoweb/moreno.marzolla}{Prof. Moreno Marzolla}
+                \item Area of study: Pervasive Computing
+            \end{innerlist}
+\halfblankline
+\end{outerlist}
+
+\href{https://www.ispascalcomandini.it/}{ITT Blaise Pascal}, Cesena (FC), Italy
+\begin{outerlist}
+    \item[] High School Diploma,
+            \href{https://www.ispascalcomandini.it/}{Electronics and Automation specialization}, June 2016
+            \begin{innerlist}
+                \item \emph{90/100}
+            \end{innerlist}
+\halfblankline
+\end{outerlist}
+
+\macrosection{Scientific Pubblications}
+
+\macrosection{Experience}
+
+\section{Tutoring}
+\vspace{-1.9em}
+\begin{outerlist}
+    \item[2022/2023]
+        \shortunibocourse
+        {https://www.unibo.it/it/didattica/insegnamenti/insegnamento/2022/412181}{Algorithm and Data Structures}
+        {https://corsi.unibo.it/laurea/IngegneriaScienzeInformatiche}{Bachelor in Computer Science and Engineering}
+    \item[2021/2022]
+        \shortunibocourse
+        {https://www.unibo.it/it/didattica/insegnamenti/insegnamento/2021/412181}{Algorithm and Data Structures}
+        {https://corsi.unibo.it/laurea/IngegneriaScienzeInformatiche}{Bachelor in Computer Science and Engineering}
+    \item[2020/2021]
+        \shortunibocourse
+        {https://www.unibo.it/it/didattica/insegnamenti/insegnamento/2020/412181}{Algorithm and Data Structures}
+        {https://corsi.unibo.it/laurea/IngegneriaScienzeInformatiche}{Bachelor in Computer Science and Engineering}
+\end{outerlist}
+
+\section{Internships}
+\vspace{-1.9em}
+\begin{outerlist}
+    \item[2019]
+        \shortunibocourse
+        {https://www.unibo.it/it/didattica/insegnamenti/insegnamento/2019/385080}{HPC Internship focused on NVIDIA GPU programming}
+        {https://corsi.unibo.it/laurea/IngegneriaScienzeInformatiche}{Bachelor in Computer Science and Engineering}
+    \item[2015]
+        \textit{\textbf{High School Internship}} at \href{https://generalsystem.net/}{General System S.r.l.}
+\end{outerlist}
+
+\macrosection{Skills}
+
+\macrosection{Extra Curricular Activities}
+
+\end{document}
