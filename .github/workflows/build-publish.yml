@@ -15,46 +15,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_latex:
+  Setup-Compile-Deploy:
     runs-on: ubuntu-latest
     steps:
-
-      - name: "Checkout the repo"
-        uses: actions/checkout@v3
+      - uses: DanySK/compile-and-publish-all-latex@1.0.47
         with:
-          submodules: true
-          fetch-depth: 0
-
-      - name: Fetch tags
-        shell: bash
-        run: git fetch --tags -f
-
-      - name: Setup TeXLive environment
-        uses: xu-cheng/texlive-action/full@v1
-        with:
-          run: |
-            apk add make
-            make
-      
-      - name: Release
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
-        uses: DanySK/semver-autotag-action@0.1.0
-
-      - name: Release artefacts
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
-        shell: bash
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          if [[ -z ${GITHUB_TOKEN} ]]; then
-            echo "No token found... unable to deploy"
-            false
-          else
-            TAG=$(git describe --tags --exact-match HEAD)
-            hub release create -m "$(git tag -l --format='%(contents)' "$TAG")" "$TAG" || true
-            for file in `ls *.pdf`
-            do
-              echo "Release of $file"
-              gh release upload "$TAG" $file --clobber
-            done
-          fi
+          token: ${{ secrets.GITHUB_TOKEN }}
