@@ -256,6 +256,13 @@ bibencoding=utf8
     {#6}{#7}
 }
 
+\newcommand{\activity}[5]{
+    \href{#1}{\textit{\textbf{#2}}},
+    {#3},
+    {#4},
+    {#5}
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -265,7 +272,7 @@ bibencoding=utf8
 \vspace{20pt}
 \hrulefill
 \begin{center}
-\textbf{#1}
+\textbf{\MakeUppercase{#1}}
 \end{center}
 \vspace{-7pt}
 \hrulefill
@@ -285,8 +292,8 @@ bibencoding=utf8
 \newlength{\rcollength}\setlength{\rcollength}{2.5in}%
 %
 \begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}                          
-Via dell'Università, 50    & \textit{Cell:} +39 3402876022\\
-47522 Cesena (FC)          & \textit{E-mail:} \email{nicolas.farabegoli@unibo.it}\\
+Via Bagalona, 599          & \textit{Cell:} +39 3402876022\\
+47032 Bertinoro (FC)       & \textit{E-mail:} \email{nicolas.farabegoli@unibo.it}\\
 Italy                      & \textit{WWW:} \href{https://www.nicolasfarabegoli.it/}{www.nicolasfarabegoli.it}\\
 \end{tabular}
 
@@ -300,9 +307,9 @@ Italy
     \item Teaching tutor\\\emph{Tutor didattico}
 \end{outerlist}
 
-\newpage
+%\newpage
 
-\macrosection{EDUCATION AND CARREER}
+\macrosection{EDUCATION}
 
 \section{Education}
 %
@@ -311,8 +318,8 @@ Italy
     \item[] M.S.,
             \href{https://corsi.unibo.it/laurea/IngegneriaScienzeInformatiche}{Computer Science and Engineering}, March 2023
             \begin{innerlist}
-                \item \emph{110L/100 - Magna cum Laude}
-                \item Thesis Topic: \emph{Design and implementation of a portable framework for applicationd decomposition and deployment in edge-cloud systems}
+                \item \emph{110L/100 - Summa cum Laude}
+                \item Thesis Topic: \emph{Design and Implementation of a Portable Framework for Applicationd Decomposition and Deployment in Edge-Cloud Systems}
                 \item Supervisors:
                       \href{https://www.unibo.it/sitoweb/mirko.viroli}{Prof. Mirko Viroli}, \href{https://www.unibo.it/sitoweb/danilo.pianini}{Prof. Danilo Pianini}
                 \item Area of study: Pervasive Computing
@@ -320,10 +327,10 @@ Italy
     \item[] B.S.,
             \href{https://corsi.unibo.it/magistrale/IngegneriaScienzeInformatiche}{Computer Science and Engineering}, March 2020
             \begin{innerlist}
-                \item Thesis Topic: \emph{Optimized implementation of the Dirac Operator on GPGPU}
+                \item Thesis Topic: \emph{Optimized Implementation of the Dirac Operator on GPGPU}
                 \item Supervisor:
                       \href{https://www.unibo.it/sitoweb/moreno.marzolla}{Prof. Moreno Marzolla}
-                \item Area of study: Pervasive Computing
+                \item Area of study: High Performance Computing
             \end{innerlist}
 \halfblankline
 \end{outerlist}
@@ -334,11 +341,27 @@ Italy
             \href{https://www.ispascalcomandini.it/}{Electronics and Automation specialization}, June 2016
             \begin{innerlist}
                 \item \emph{90/100}
+                \item Final project: \emph{Implementation of a Functions Generator with Raspberry PI}
             \end{innerlist}
 \halfblankline
 \end{outerlist}
 
 \macrosection{Scientific Pubblications}
+
+\section{Submitted}
+\vspace{-1.9em}
+\renewcommand{\section}[2]{}
+\nocite{*}
+\DeclareFieldFormat{labelnumberwidth}{#1}
+\printbibliography[omitnumbers=true]{}
+\renewcommand{\section}[2]%
+        {\pagebreak[3]\vspace{1.3\baselineskip}%
+         \phantomsection\addcontentsline{toc}{section}{#1}%
+         \hspace{0in}%
+         \marginpar{
+         \raggedright \scshape #1}#2}
+
+\newpage
 
 \macrosection{Experience}
 
@@ -372,6 +395,150 @@ Italy
 
 \macrosection{Skills}
 
+\section{Programming Languages}
+\vspace{-1.9em}
+\begin{center}
+    \begin{tabular}{p{2cm} p{2cm} p{2cm} p{2cm}}
+        Bash & C & C++ & C\# \\
+        Kotlin & Java & Javascript & Prolog \\
+        Protelis & Python & Rust & Scala \\
+        TypeScript
+    \end{tabular}
+\end{center}
+
+\section{Other Languages}
+\vspace{-1.9em}
+\begin{center}
+    \begin{tabular}{p{2cm} p{2cm} p{2cm} p{2cm}}
+        CSS & HTML & JSON & \LaTeX \\
+        Markdown & SQL & YAML
+    \end{tabular}
+\end{center}
+
+\section{Software Tools}
+\vspace{-1.9em}
+\begin{center}
+    \begin{tabular}{p{2cm} p{2cm} p{2cm} p{2cm}}
+        Cargo & Git & Gradle & GH Actions \\
+        Hugo & Inkscape & Markdown & sbt \\
+        SQL & npm & IntelliJ & VS Code \\
+    \end{tabular}
+\end{center}
+
+
 \macrosection{Extra Curricular Activities}
+\begin{outerlist}
+    \item[2020/2021]
+        \activity{https://motorsport.unibo.it/}{Unibo Motorsport}
+        {E--Powertrain Division Member}
+        {Bologna, Italy}
+        {
+            \begin{innerlist}
+                \item Developed BMS boards for bike's battery pack;
+                \item Improved \emph{LabView} program for testing battery pack;
+                \item Developed the bike's wiring system.
+            \end{innerlist}
+        }
+    \item[2016/2019]
+        \activity{https://cesena.github.io/about/}{Ce.Se.N.A. Security Team}
+        {Core Member}
+        {Cesena, Italy}
+        {
+            \begin{innerlist}
+                \item Learned reverse engineering techniques, mainly focused on binary;
+                \item Attended several presentations, as well as seminars focusing on security;
+                \item Took part in several \emph{CTF} competitions.
+            \end{innerlist}
+        }
+    \item[2014/2017]
+        \activity{https://fablabromagna.org/}{Fablab Romagna}
+        {Core Member}
+        {Cesena, Italy}
+        {
+            \begin{innerlist}
+                \item In charge of improving the laboratory with new tools and equipment;
+                \item Speaker of the seminar ``Basic introduction to electronics and its component";
+                \item Involved in the organization of the \emph{Rimini Beach Mini Maker Faire} (2015);
+                \item Developed several prototypes with \emph{Arduino} and \emph{Raspberry PI}.
+            \end{innerlist}
+        }
+\end{outerlist}
+
+\newpage
+
+\macrosection{Projects Contributions}
+
+\section{Lead Designer of Software Projects}
+Lead designer and major maintainer of \href{https://github.com/nicolasfara/conventional-commits}{conventional-commits}, 2022--today
+\begin{innerlist}
+    \item \emph{conventional-commits} is a Gradle plugin to enforce the use of the \emph{conventional commits} standard.
+\end{innerlist}
+\halfblankline
+
+Lead designer and major maintainer of \href{https://github.com/nicolasfara/sbt-conventional-commits}{sbt-conventional-commits}, 2022--today
+\begin{innerlist}
+    \item \emph{conventional-commits} is am Sbt plugin to enforce the use of the \emph{conventional commits} standard.
+\end{innerlist}
+\halfblankline
+
+Lead Designer and major maintainer of \href{https://github.com/pulvreakt/pulvreakt}{PulvReAKt}, 2022--today
+\begin{innerlist}
+    \item \emph{PulvReAKt} is a Kotlin framework for the development of distributed applications using the \emph{pulverization approach}.
+\end{innerlist}
+\halfblankline
+
+Major maintainer of \href{https://github.com/atedeg/mdm}{MDM}, 2022
+\begin{innerlist}
+    \item \emph{MDM} is a software modelling of the business processes of the \emph{Mambelli} cheese factory.
+        The project is written in Scala using a pure functional approach.
+\end{innerlist}
+\halfblankline
+
+Major maintainer of \href{https://github.com/atedeg/ecscala}{ECScala}, 2021
+\begin{innerlist}
+    \item \emph{ECScala} is an \emph{ECS} (Entity Component System) framework in Scala.
+\end{innerlist}
+\halfblankline
+
+Lead Designer and major maintainer of \href{https://github.com/nicolasfara/pfeeder}{pfeeder}, 2020
+\begin{innerlist}
+    \item \emph{pfeeder} is a cloud-based software system for the management of a smart pet feeder.
+\end{innerlist}
+
+Lead Designer and major maintainer of \href{https://github.com/nicolasfara/oop17-fag}{fag}, 2018
+\begin{innerlist}
+    \item \emph{fag} is the OOP final course project 2D game.
+\end{innerlist}
+
+\section{Contribution to Open Source Projects}
+Contributor to \href{https://github.com/gciatto/kt-mpp}{kt-mpp}, 2023--today
+\begin{innerlist}
+    \item A bundle of Gradle plugins for multi-platform and -project (MPP, henceforth) Kotlin projects.
+\end{innerlist}
+\halfblankline
+
+Contributor to \href{https://github.com/DanySK/publish-on-central}{publish-on-central}, 2022--today
+\begin{innerlist}
+    \item \emph{publish-on-central} is a Gradle plugin to publish artifacts on Maven Central.
+\end{innerlist}
+\halfblankline
+
+Contributor to \href{https://github.com/DanySK/git-sensitive-semantic-versioning-gradle-plugin}{git-sensitive-semantic-versioning-gradle-plugin}, 2022--today
+\begin{innerlist}
+    \item Gradle plugin to automatically version projects using the \emph{semantic versioning} standard.
+\end{innerlist}
+\halfblankline
+
+Contributor to \href{https://github.com/DanySK/Template-for-Kotlin-Multiplatform-Projects}{Template-for-Kotlin-Multiplatform-Projects}, 2022--today
+\begin{innerlist}
+    \item Template for Kotlin Multiplatform Projects.
+\end{innerlist}
+\halfblankline
+
+Contributor to \href{https://github.com/DanySK/rrmxmx-kt}{rrmxmx-kt}, 2023--today
+\begin{innerlist}
+    \item \emph{rrmxmx-kt} is a Kotlin library implementing the rrmxmx algorithm: a very fast hashing function that performs very well with low-entropy input data.
+\end{innerlist}
+\halfblankline
 
 \end{document}
