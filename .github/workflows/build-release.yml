@@ -37,13 +37,14 @@ jobs:
           sudo cp otfs/*.otf /usr/share/fonts/opentype
           sudo cp webfonts/*.ttf /usr/share/fonts/truetype
           sudo fc-cache -fv
-          fc-list | grep -i "awesome"
         
-      - name: Typst
-        uses: lvignoli/typst-action@main
+      - uses: yusancky/setup-typst@v2
+        id: setup-typst
         with:
-          source_file: |
-            nicolasfarabegoli-cv-eng.typ
+          version: 'v0.7.0'
+
+      - name: build CV
+        run: typst compile nicolasfarabegoli-cv-eng.typ
 
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
