@@ -3,7 +3,7 @@
 #import "data-it.typ": *
 
 #set page(numbering: "1 of 1")
-#set text(font: "Source Sans Pro", size: 0.95em)
+#set text(font: "Open Sans", size: 0.85em)
 #set par(leading: line-spacing)
 
 #show-header("Nicolas Farabegoli", contact-entries, "none")
