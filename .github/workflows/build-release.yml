@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install fonts
         run: |
@@ -56,9 +58,11 @@ jobs:
         id: autotag
         if: github.ref_name == 'master'
         run: |
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           if ! git describe --tags --exact-match HEAD; then
             TENTATIVE_TAG="$(git describe)" || TENTATIVE_TAG="0.1.0-$(git log -n1 --date=format:'%Y-%m-%dT%H%M%S' --format=%cd)"
-            git tag "$TENTATIVE_TAG" -m "$(message "$TENTATIVE_TAG")"
+            git tag "$TENTATIVE_TAG" -m "Release "$TENTATIVE_TAG""
           fi
           echo "TAG=$(git describe --tags --exact-match HEAD)" >> $GITHUB_OUTPUT
       
@@ -69,3 +73,4 @@ jobs:
         with:
           name: "Release — ${{ steps.autotag.outputs.tag }}"
           files: "*.pdf"
+          tag_name: ${{ steps.autotag.outputs.tag }}
