@@ -1,4 +1,4 @@
-name: Build LaTeX CV and deploy it on GitHub Releases
+name: Build Typst CV and deploy it on GitHub Releases
 
 on:
   push:
@@ -23,9 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+        uses: actions/checkout@v3.5.3
 
       - name: Install fonts
         run: |
@@ -36,7 +34,7 @@ jobs:
           sudo mv fontawesome-free-6.4.2-desktop /usr/share/fonts
           sudo fc-cache -fv
         
-      - uses: yusancky/setup-typst@v2
+      - uses: yusancky/setup-typst@v2.0.1
         id: setup-typst
         with:
           version: 'v0.7.0'
@@ -45,7 +43,7 @@ jobs:
         run: typst compile nicolasfarabegoli-cv-eng.typ
 
       - name: Upload PDF file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: PDF
           path: "*.pdf"
@@ -65,7 +63,6 @@ jobs:
             git tag "$TENTATIVE_TAG" -m "Release "$TENTATIVE_TAG""
           fi
           echo "TAG=$(git describe --tags --exact-match HEAD)" >> $GITHUB_OUTPUT
-      
 
       - name: Release
         uses: softprops/action-gh-release@v1
