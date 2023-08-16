@@ -1,0 +1,60 @@
+name: Build LaTeX CV and deploy it on GitHub Releases
+
+on:
+  push:
+    tags: '*'
+    branches-ignore:
+      - 'autodelivery**'
+      - 'bump-**'
+      - 'renovate/**'
+    paths-ignore:
+      - 'README.md'
+      - 'CHANGELOG.md'
+      - 'LICENSE'
+      - 'renovate.json'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Typst
+        uses: lvignoli/typst-action@main
+        with:
+          source_file: |
+            nicolasfarabegoli-cv-eng.typ
+
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v3
+        with:
+          name: PDF
+          path: "*.pdf"
+
+      - name: Get current date
+        id: date
+        run: echo "DATE=$(date +%Y-%m-%d-%H:%M)" >> $GITHUB_ENV
+      
+      - name: Autotag
+        id: autotag
+        if: github.ref_name == 'master'
+        run: |
+          if ! git describe --tags --exact-match HEAD; then
+            TENTATIVE_TAG="$(git describe)" || TENTATIVE_TAG="0.1.0-$(git log -n1 --date=format:'%Y-%m-%dT%H%M%S' --format=%cd)"
+            git tag "$TENTATIVE_TAG" -m "$(message "$TENTATIVE_TAG")"
+          fi
+          echo "TAG=$(git describe --tags --exact-match HEAD)" >> $GITHUB_OUTPUT
+      
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: github.ref_name == 'master'
+        with:
+          name: "Release — ${{ steps.autotag.outputs.tag }}"
+          files: "*.pdf"
