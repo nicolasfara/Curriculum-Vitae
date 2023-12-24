@@ -34,7 +34,7 @@ jobs:
           sudo mv fontawesome-free-6.4.2-desktop /usr/share/fonts
           sudo fc-cache -fv
         
-      - uses: yusancky/setup-typst@v2.0.1
+      - uses: yusancky/setup-typst@v3.0.0
         id: setup-typst
         with:
           version: 'v0.7.0'
