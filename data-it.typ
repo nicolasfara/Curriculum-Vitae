@@ -1,7 +1,7 @@
 #import "@preview/fontawesome:0.1.0": *
 
 #let contact-entries = (
-  (icon-path: fa-envelope(), content: link("mailto:nicolas.farabegoli@unibo.com")),
+  (icon-path: fa-envelope(), content: link("mailto:nicolas.farabegoli@unibo.it")),
   (icon-path: fa-phone(), content: link("tel:+39 3402876022")),
   (icon-path: fa-location-dot(), content: [Bertinoro, Italy]),
   (icon-path: fa-icon("github", fa-set: "Brands"), content: link("https://github.com/nicolasfara")[nicolasfara]),
