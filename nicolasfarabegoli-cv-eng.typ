@@ -9,6 +9,7 @@
 #show-header("Nicolas Farabegoli", contact-entries, "none")
 #entries-section("Current Position", current-position-entries)
 #entries-section("Education", education-entries)
+#entries-section("Publications", pubblications)
 #entries-section("Professional Experiences", work-experience-entries)
 
 // Skills and languages

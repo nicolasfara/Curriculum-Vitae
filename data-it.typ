@@ -9,10 +9,10 @@
 
 #let current-position-entries = (
   (
-    title: [Research Fellow],
+    title: [PhD Student],
     subtitle: [Department of Computer Science and Engineering],
     subtitle-aside: [University of Bologna, Italy],
-    date: [April 2023 --- Today],
+    date: [November 2023 --- Today],
   ),
   (
     title: [Teaching Tutor],
@@ -144,6 +144,14 @@
 
 #let projects-contributions-entries = (
   (
+    title: [Maintainer of collektive],
+    subtitle: [Complier plugin developer],
+    date: [2023 --- Today],
+    more: [
+      #link("https://github.com/collektive/collektive")[#fa-icon("github", fa-set: "Brands") collektive/collektive]
+    ]
+  ),
+  (
     title: [Lead designer and maintainer of PulvReAKt],
     subtitle: [Kotlin multiplatform framework for pulverized application development],
     date: [2022 --- Today],
@@ -191,4 +199,34 @@
       #link("https://github.com/nicolasfara/pfeeder")[#fa-icon("github", fa-set: "Brands") nicolasfara/pfeeder]
     ]
   ),
+)
+
+#let pubblications = (
+  (
+    title: [Scalability through Pulverisation: Declarative deployment reconfiguration at runtime],
+    subtitle: [
+      Farabegoli, N., Pianini, D., Casadei, R., & Viroli, M. (2024). Scalability through Pulverisation: Declarative deployment reconfiguration at runtime. Future Generation Computer Systems, 161, 545–558. http://dx.doi.org/10.1016/j.future.2024.07.042],
+    date: [2024],
+  ),
+  (
+    title: [Proximity-based Self-Federated Learning],
+    subtitle: [
+      Domini, D., Aguzzi, G., Farabegoli, N., Viroli, M., & Esterle, L. (2024). Proximity-based Self-Federated Learning. arXiv. https://doi.org/10.48550/ARXIV.2407.12410
+    ],
+    date: [2024],
+  ),
+  (
+    title: [Middleware Architectures for Fluid Computing],
+    subtitle: [
+      Casadei, R., Farabegoli, N., Fortino, G., Savaglio, C., & Viroli, M. (2024). Middleware Architectures for Fluid Computing (F. Zambonelli, G. Fortino, B. Re, & M. Viroli, Eds.; pp. 49–63). Springer International Publishing. https://doi.org/10.1007/978-3-031-62146-8_3
+    ],
+    date: [2024],
+  ),
+  (
+    title: [Towards Intelligent Pulverized Systems: a Modern Approach for Edge-Cloud Services],
+    subtitle: [
+      Domini, D., Farabegoli, N., Aguzzi, G., & Viroli, M. (2024). Towards Intelligent Pulverized Systems: a Modern Approach for Edge-Cloud Services. In M. Alderighi, M. Baldoni, C. Baroglio, R. Micalizio, & S. Tedeschi (Eds.), Proceedings of the 25th Workshop “From Objects to Agents”, Bard (Aosta), Italy, July 8-10, 2024 (Vol. 3735, pp. 233–251). CEUR-WS.org. https://ceur-ws.org/Vol-3735/paper_19.pdf
+    ],
+    date: [2024],
+  )
 )
