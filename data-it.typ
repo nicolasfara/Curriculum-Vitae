@@ -24,6 +24,18 @@
 
 #let work-experience-entries = (
   (
+    title: [Teaching Tutor --- Object-Oriented Programming],
+    subtitle: [University of Bologna],
+    subtitle-aside: [Campus of Cesena, Italy],
+    date: [A.Y. 2024/2025],
+  ),
+  (
+    title: [Teaching Tutor --- Object-Oriented Programming],
+    subtitle: [University of Bologna],
+    subtitle-aside: [Campus of Cesena, Italy],
+    date: [A.Y. 2023/2024],
+  ),
+  (
     title: [Teaching Tutor --- Algorithms and Data Structures],
     subtitle: [University of Bologna],
     subtitle-aside: [Campus of Cesena, Italy],
