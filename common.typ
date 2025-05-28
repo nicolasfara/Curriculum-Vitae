@@ -1,4 +1,4 @@
-#import "@preview/fontawesome:0.1.0": *
+#import "@preview/fontawesome:0.5.0": *
 
 #let line-spacing = 0.75em
 #let entries-spacing = 0.65em

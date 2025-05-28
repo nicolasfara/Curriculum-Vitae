@@ -1,10 +1,10 @@
-#import "@preview/fontawesome:0.1.0": *
+#import "@preview/fontawesome:0.5.0": *
 
 #let contact-entries = (
   (icon-path: fa-envelope(), content: link("mailto:nicolas.farabegoli@unibo.it")),
   (icon-path: fa-phone(), content: link("tel:+39 3402876022")),
   (icon-path: fa-location-dot(), content: [Bertinoro, Italy]),
-  (icon-path: fa-icon("github", fa-set: "Brands"), content: link("https://github.com/nicolasfara")[nicolasfara]),
+  (icon-path: fa-github(), content: link("https://github.com/nicolasfara")[nicolasfara]),
 )
 
 #let current-position-entries = (
@@ -148,7 +148,7 @@
     subtitle: [Complier plugin developer],
     date: [2023 --- Today],
     more: [
-      #link("https://github.com/collektive/collektive")[#fa-icon("github", fa-set: "Brands") collektive/collektive]
+      #link("https://github.com/collektive/collektive")[#fa-github() collektive/collektive]
     ]
   ),
   (
@@ -156,7 +156,7 @@
     subtitle: [Kotlin multiplatform framework for pulverized application development],
     date: [2022 --- Today],
     more: [
-      #link("https://github.com/pulvreakt/pulvreakt")[#fa-icon("github", fa-set: "Brands") pulvreakt/pulvreakt]
+      #link("https://github.com/pulvreakt/pulvreakt")[#fa-github() pulvreakt/pulvreakt]
     ]
   ),
   (
@@ -164,7 +164,7 @@
     subtitle: [Mambelli Domain Model --- Pure functional domain modellation],
     date: [2022],
     more: [
-      #link("https://github.com/atedeg/mdm")[#fa-icon("github", fa-set: "Brands") atedeg/mdm]
+      #link("https://github.com/atedeg/mdm")[#fa-github() atedeg/mdm]
     ]
   ),
   (
@@ -172,7 +172,7 @@
     subtitle: [Entity Component System for Scala],
     date: [2021],
     more: [
-      #link("https://github.com/atedeg/ecscala")[#fa-icon("github", fa-set: "Brands") atedeg/ecscala]
+      #link("https://github.com/atedeg/ecscala")[#fa-github() atedeg/ecscala]
     ]
   ),
   (
@@ -180,7 +180,7 @@
     subtitle: [Gradle plugin for enforcing conventional commit messages],
     date: [2022 --- Today],
     more: [
-      #link("https://github.com/nicolasfara/conventional-commits")[#fa-icon("github", fa-set: "Brands") nicolasfara/conventional-commits]
+      #link("https://github.com/nicolasfara/conventional-commits")[#fa-github() nicolasfara/conventional-commits]
     ]
   ),
   (
@@ -188,7 +188,7 @@
     subtitle: [SBT plugin for enforcing conventional commit messages],
     date: [2022 --- Today],
     more: [
-      #link("https://github.com/nicolasfara/sbt-conventional-commits")[#fa-icon("github", fa-set: "Brands") nicolasfara/sbt-conventional-commits]
+      #link("https://github.com/nicolasfara/sbt-conventional-commits")[#fa-github() nicolasfara/sbt-conventional-commits]
     ]
   ),
   (
@@ -196,7 +196,7 @@
     subtitle: [Cloud-based software system for a smart pet feeder management],
     date: [2020],
     more: [
-      #link("https://github.com/nicolasfara/pfeeder")[#fa-icon("github", fa-set: "Brands") nicolasfara/pfeeder]
+      #link("https://github.com/nicolasfara/pfeeder")[#fa-github() nicolasfara/pfeeder]
     ]
   ),
 )
@@ -209,9 +209,44 @@
     date: [2024],
   ),
   (
+    title: [Dynamic IoT deployment reconfiguration: A global-lev self-organisation approach],
+    subtitle: [
+      Nicolas Farabegoli, Danilo Pianini, Roberto Casadei, & Mirko Viroli (2024). Dynamic IoT deployment reconfiguration: A global-level self-organisation approach. Internet Things, 28, 101412.
+    ],
+    date: [2024],
+  ),
+  (
     title: [Proximity-based Self-Federated Learning],
     subtitle: [
       Domini, D., Aguzzi, G., Farabegoli, N., Viroli, M., & Esterle, L. (2024). Proximity-based Self-Federated Learning. arXiv. https://doi.org/10.48550/ARXIV.2407.12410
+    ],
+    date: [2024],
+  ),
+  (
+    title: [An Agent-Based Model of Directional Multi-Herds],
+    subtitle: [
+      Denys Grushchak, Jenna Kline, Danilo Pianini, & Nicolas Farabegoli (2024). An Agent-Based Model of Directional Multi-Herds. In IEEE International Conference on Autonomic Computing and Self-Organizing Systems, ACSOS 2024 - Companion, Aarhus, Denmark, September 16-20, 2024 (pp. 15–20). IEEE.
+    ],
+    date: [2024],
+  ),
+  (
+    title: [Self-organisation for the Cloud-Edge Continuum: a Macro-programming Approach],
+    subtitle: [
+      Nicolas Farabegoli, Mirko Viroli, & Roberto Casadei (2024). Flexible Self-organisation for the Cloud-Edge Continuum: a Macro-programming Approach. In IEEE International Conference on Autonomic Computing and Self-Organizing Systems, ACSOS 2024, Aarhus, Denmark, September 16-20, 2024 (pp. 21–30). IEEE.
+    ],
+    date: [2024],
+  ),
+  (
+    title: [Decentralized Multi-Drone Coordination for Wildlife Video Acquisition],
+    subtitle: [
+      Denys Grushchak, Jenna Kline, Danilo Pianini, Nicolas Farabegoli, Gianluca Aguzzi, Martina Baiardi, & Christopher Stewart (2024). Decentralized Multi-Drone Coordination for Wildlife Video Acquisition. In IEEE International Conference on Autonomic Computing and Self-Organizing Systems, ACSOS 2024, Aarhus, Denmark, September 16-20, 2024 (pp. 31–40). IEEE.
+    ],
+    date: [2024],
+  ),
+  (
+    title: [Intelligent Pulverised Collective-Adaptive Systems],
+    subtitle: [
+      Nicolas Farabegoli (2024). Intelligent Pulverised Collective-Adaptive Systems. In IEEE International Conference on Autonomic Computing and Self-Organizing Systems, ACSOS 2024 - Companion, Aarhus, Denmark, September 16-20, 2024 (pp. 161–163). IEEE.
     ],
     date: [2024],
   ),
