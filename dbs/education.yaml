@@ -1,0 +1,25 @@
+master:
+  title:
+    it: Laurea Magistrale
+    en: Master's Degree
+  subtitle:
+    it: Ingegneria e Scienze Informatiche
+    en: Computer Science and Engineering
+  location:
+    it: Università di Bologna
+    en: University of Bologna
+  description:
+    it: con lode
+    en: cum laude
+  left: "09/2020-03/2023"
+bachelor:
+  title:
+    it: Laurea Triennale
+    en: Bachelor's Degree
+  subtitle:
+    it: Ingengeria e Scienze Informatiche
+    en: Computer Science and Engineering
+  location:
+    it: Univeristà di Bologna
+    en: University of Bologna
+  left: "09/2016-03/2020"

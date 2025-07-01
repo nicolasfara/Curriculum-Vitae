@@ -1,0 +1,33 @@
+entry1:
+  title:
+    it: Studente di dottorato
+    en: PhD Student
+  subtitle:
+    it: Scienze e Ingeneria Informatica
+    en: Computer Science and Engineering
+  location:
+    it: Università di Bologna
+    en: University of Bologna
+  left: since 11/2023
+# entry2:
+#   title:
+#     it: Laurea Magistrale
+#     en: Master's Degree
+#   subtitle:
+#     it: Scienze e Ingeneria Informatica
+#     en: Computer Science and Engineering
+#   location:
+#     it: Università di Bologna
+#     en: University of Bologna
+#   left: 09/2020-03/2023
+# entry3:
+#   title:
+#     it: Laurea Triennale
+#     en: Bachelor's Degree
+#   subtitle:
+#     it: Scienze e Ingeneria Informatica
+#     en: Computer Science and Engineering
+#   location:
+#     it: Università di Bologna
+#     en: University of Bologna
+#   left: 09/2016-03/2020

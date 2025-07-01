@@ -1,0 +1,144 @@
+DBLP:journals/fgcs/FarabegoliPCV24:
+  type: article
+  title: 'Scalability through Pulverisation: Declarative deployment reconfiguration at runtime'
+  author:
+  - Farabegoli, Nicolas
+  - Pianini, Danilo
+  - Casadei, Roberto
+  - Viroli, Mirko
+  tags: "peer"
+  date: 2024
+  page-range: 545-558
+  url: https://doi.org/10.1016/j.future.2024.07.042
+  serial-number:
+    doi: 10.1016/J.FUTURE.2024.07.042
+  parent:
+    type: periodical
+    title: Future Gener. Comput. Syst.
+    volume: 161
+DBLP:journals/iot/FarabegoliPCV24:
+  type: article
+  title: 'Dynamic IoT deployment reconfiguration: {A} global-level self-organisation approach'
+  author:
+  - Farabegoli, Nicolas
+  - Pianini, Danilo
+  - Casadei, Roberto
+  - Viroli, Mirko
+  date: 2024
+  page-range: '101412'
+  url: https://doi.org/10.1016/j.iot.2024.101412
+  serial-number:
+    doi: 10.1016/J.IOT.2024.101412
+  parent:
+    type: periodical
+    title: Internet Things
+    volume: 28
+DBLP:conf/acsos/GrushchakKPF24:
+  type: article
+  title: An Agent-Based Model of Directional Multi-Herds
+  author:
+  - Grushchak, Denys
+  - Kline, Jenna
+  - Pianini, Danilo
+  - Farabegoli, Nicolas
+  date: 2024
+  page-range: 15-20
+  url: https://doi.org/10.1109/ACSOS-C63493.2024.00023
+  serial-number:
+    doi: 10.1109/ACSOS-C63493.2024.00023
+  parent:
+    type: proceedings
+    title: '{IEEE} International Conference on Autonomic Computing and Self-Organizing Systems, {ACSOS} 2024 - Companion, Aarhus, Denmark, September 16-20, 2024'
+    publisher: '{IEEE}'
+DBLP:conf/acsos/FarabegoliVC24:
+  type: article
+  title: 'Flexible Self-organisation for the Cloud-Edge Continuum: a Macro-programming Approach'
+  author:
+  - Farabegoli, Nicolas
+  - Viroli, Mirko
+  - Casadei, Roberto
+  date: 2024
+  page-range: 21-30
+  url: https://doi.org/10.1109/ACSOS61780.2024.00020
+  serial-number:
+    doi: 10.1109/ACSOS61780.2024.00020
+  parent:
+    type: proceedings
+    title: '{IEEE} International Conference on Autonomic Computing and Self-Organizing Systems, {ACSOS} 2024, Aarhus, Denmark, September 16-20, 2024'
+    publisher: '{IEEE}'
+DBLP:conf/acsos/GrushchakKPFABS24:
+  type: article
+  title: Decentralized Multi-Drone Coordination for Wildlife Video Acquisition
+  author:
+  - Grushchak, Denys
+  - Kline, Jenna
+  - Pianini, Danilo
+  - Farabegoli, Nicolas
+  - Aguzzi, Gianluca
+  - Baiardi, Martina
+  - Stewart, Christopher
+  date: 2024
+  page-range: 31-40
+  url: https://doi.org/10.1109/ACSOS61780.2024.00021
+  serial-number:
+    doi: 10.1109/ACSOS61780.2024.00021
+  parent:
+    type: proceedings
+    title: '{IEEE} International Conference on Autonomic Computing and Self-Organizing Systems, {ACSOS} 2024, Aarhus, Denmark, September 16-20, 2024'
+    publisher: '{IEEE}'
+DBLP:conf/acsos/DominiAFVE24:
+  type: article
+  title: Proximity-based Self-Federated Learning
+  author:
+  - Domini, Davide
+  - Aguzzi, Gianluca
+  - Farabegoli, Nicolas
+  - Viroli, Mirko
+  - Esterle, Lukas
+  date: 2024
+  page-range: 139-144
+  url: https://doi.org/10.1109/ACSOS61780.2024.00033
+  serial-number:
+    doi: 10.1109/ACSOS61780.2024.00033
+  parent:
+    type: proceedings
+    title: '{IEEE} International Conference on Autonomic Computing and Self-Organizing Systems, {ACSOS} 2024, Aarhus, Denmark, September 16-20, 2024'
+    publisher: '{IEEE}'
+# DBLP:conf/acsos/Farabegoli24:
+#   type: article
+#   title: Intelligent Pulverised Collective-Adaptive Systems
+#   author: Farabegoli, Nicolas
+#   date: 2024
+#   page-range: 161-163
+#   url: https://doi.org/10.1109/ACSOS-C63493.2024.00050
+#   serial-number:
+#     doi: 10.1109/ACSOS-C63493.2024.00050
+#   parent:
+#     type: proceedings
+#     title: '{IEEE} International Conference on Autonomic Computing and Self-Organizing Systems, {ACSOS} 2024 - Companion, Aarhus, Denmark, September 16-20, 2024'
+#     publisher: '{IEEE}'
+DBLP:conf/woa/DominiFAV24:
+  type: article
+  title: 'Towards Intelligent Pulverized Systems: a Modern Approach for Edge-Cloud Services'
+  author:
+  - Domini, Davide
+  - Farabegoli, Nicolas
+  - Aguzzi, Gianluca
+  - Viroli, Mirko
+  date: 2024
+  editor:
+  - Alderighi, Marco
+  - Baldoni, Matteo
+  - Baroglio, Cristina
+  - Micalizio, Roberto
+  - Tedeschi, Stefano
+  page-range: 233-251
+  url: https://ceur-ws.org/Vol-3735/paper/_19.pdf
+  parent:
+    type: proceedings
+    title: Proceedings of the 25th Workshop "From Objects to Agents", Bard (Aosta), Italy, July 8-10, 2024
+    publisher: CEUR-WS.org
+    volume: 3735
+    parent:
+      type: proceedings
+      title: '{CEUR} Workshop Proceedings'

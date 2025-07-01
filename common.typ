@@ -1,123 +1,102 @@
 #import "@preview/fontawesome:0.5.0": *
+#import "@preview/modern-acad-cv:0.1.3": make-entry-apa, cv-cols
 
-#let line-spacing = 0.75em
-#let entries-spacing = 0.65em
-#let main-color = rgb(167, 199, 231).darken(30%)
-
-#let separation-line() = box(inset: (top: 0.2em, bottom: 0.2em), line(length: 100%, stroke: (dash: "dotted", paint: gray)))
-// #let separation-line() = repeat(text(fill: gray)[-])
-
-#let with-small-right-column(left, right) = grid(
-  columns: (1fr, auto),
-  column-gutter: 2em,
-  left,
-  right
-)
-
-#let show-contact-entry(contact-entry) = stack(
-  dir: ltr,
-  spacing: 1.5em,
-  stack(
-    dir: ltr,
-    spacing: 0.6em,
-    move(dy: -0.15em, dx: 0.30em, contact-entry.icon-path),
-    contact-entry.content
+#let cv-refs-fix(
+  what,
+  multilingual,  
+  entries: (), 
+  tag: none,
+  me: none,
+  lang: "en"
+) = {
+  // Set paragraph formatting options:
+  // - `hanging-indent`: Indentation for the second and subsequent lines of each paragraph.
+  // - `justify`: Whether the text should be justified.
+  // - `linebreaks`: Automatic line breaks to fit the content within the width of the page.
+  set par(
+    hanging-indent: 2em,
+    justify: true,
+    linebreaks: auto,
   )
-)
-
-#let show-contact-entries(entries) = entries.map(entry => box(inset: 0.4em, show-contact-entry(entry))).join("  ")
-
-#let show-header(name, contact-entries, image-path) = with-small-right-column(
-  [
-    #text(size: 2em)[= #name]
-    #align(center)[#show-contact-entries(contact-entries)]
-  ],
-  if image-path != "none"  [#move(dy: -1em, image-path)]
-)
-
-#let section-title(title) = text(fill: main-color, size: 1.2em)[
-  == #title
- #line(length: 100%, stroke: 0.1em + main-color)
-]
-
-#let subsection-title(title) = text(fill: main-color, size: 1.2em)[
-  === #title
-  //#line(length: 100%, stroke: 0.1em + main-color)
-]
-
-#let entry-title(title) = text(size: 1.1em)[=== #title]
-
-#let show-entry(entry) = {
-  let subtitle = [ 
-    #entry.subtitle #if "subtitle-aside" in entry.keys() [ 
-      --- #entry.subtitle-aside
-    ]
-  ]
   
-  let content = (
-    with-small-right-column(entry-title(entry.title), if "date" in entry.keys() { emph(entry.date) } else { [] }),
-    emph(subtitle),
-  )
-  if "more" in entry.keys() { content.push(block(inset: (top: 0.3em), entry.more)) }
-  stack(
-    dir: ttb,
-    spacing: line-spacing,
-    ..content
-  )
-}
-
-#let intersperse(array, elem) = {
-  let result = ()
-  for entry in  array {
-    result.push(entry)
-    result.push(elem)
+  // Set spacing above each block of text.
+  set block(above: 0.65em)
+  
+  // create object
+  // If `entries` is empty, populate it with all keys from the YAML file.
+  if entries.len() == 0 {
+    entries = what.keys()
   }
-  result.slice(0, result.len() - 1)
+
+  // Initialize counters for different types of publications.
+  let articles = 0
+  let incollections = 0
+  let books = 0
+  let others = 0
+  let planned = 0
+
+  // // Loop through each entry in the YAML file to count the types of publications.
+  // for (entry, field) in what {
+  //   if field.tags == "planned" {
+  //     planned += 1
+  //   } else if field.type == "article" {
+  //     articles += 1 
+  //   } else if field.type == "chapter" {
+  //     incollections += 1
+  //   } else if field.type == "book" {
+  //     books += 1
+  //   } else if field.tags == "other" {
+  //     others += 1
+  //   } 
+  // }
+  // 
+  // v(0.75em)
+
+  // Loop through each entry in the YAML file to generate the reference list.
+  for (entry, fields) in what {
+    let article-type = entry.match(regex("^DBLP:(.*?)\/.+$")).captures.at(0)
+    if not article-type == tag {
+      // If the entry does not match the expected format, skip it.
+      continue
+    }
+    
+    // // Skip entries not specified in entries if entries are specified.
+    // if entry not in entries {
+    //   continue
+    // }
+ 
+    // // If a tag is provided, skip entries that don't have the specified tag.
+    // if not tag == none {
+    //   if "tags" not in fields or tag not in fields.tags {
+    //     continue
+    //   }
+    // }
+
+    // // If entry is in one of the categories, the total number will be subtracted by one to show decreasing numbers aside the publications per section
+    // if fields.tags == "planned" {
+    //   [\[#planned\] ]
+    //   planned -= 1
+    // } else if fields.type == "article" {
+    //   [\[#articles\] ]
+    //   articles -= 1
+    // } else if fields.type == "chapter" {
+    //   [\[#incollections\] ]
+    //   incollections -= 1
+    // } else if fields.type == "book" {
+    //   [\[#books\] ]
+    //   books -= 1
+    // } else if fields.tags == "other" {
+    //   [\[#others\] ]
+    //   others -= 1
+    // }
+    
+
+    // Generate the reference entry using a custom function `make-entry-apa`.
+    // This function formats the reference according to APA style.
+    // Parameters passed are the `fields` (details of the entry), `multilingual` (multilingual object), `me` (author name), and `lang` (language).
+    cv-cols(
+      text[#fields.date],
+      make-entry-apa(fields, multilingual, me: me, lang: lang)
+    )
+  }
 }
-
-#let show-entries(entries) = stack(
-  dir: ttb,
-  spacing: entries-spacing,
-  ..intersperse(entries.map(show-entry), separation-line()),
-  box(inset: (bottom: 0.25em))
-)
-
-// #let pill(content) = box(
-//   rect(
-//     stroke: gray,
-//     radius: 50%,
-//     text(fill: gray.darken(70%), content)
-//   )
-// )
-
-#let card(content) = box(
-  inset: (right: 0.5em),
-  rect(
-    stroke: gray,
-    radius: 0.5em,
-    fill: gray.lighten(90%),
-    text(fill: gray.darken(70%), content)
-  )
-)
-
-#let section(title, content) = stack(
-  dir: ttb,
-  spacing: line-spacing,
-  section-title(title),
-  content
-)
-
-#let section-elem(title, content) = stack(
-  dir: ttb,
-  spacing: line-spacing,
-  section-title(title),
-  ..content
-)
-
-#let entries-section(title, entries) = section(title, show-entries(entries))
-#let pill-section(title, pills) = section-elem(title, pills.pairs().map(elem => stack(
-  dir: ttb,
-  spacing: 1em,
-  subsection-title(elem.at(0)),
-  elem.at(1).map(card).join(" ")
-)))

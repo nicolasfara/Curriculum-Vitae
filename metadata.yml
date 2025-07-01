@@ -1,0 +1,38 @@
+colors:
+  main_color: "#579D90"
+  lightgray_color: "#d5d5d5"
+  gray_color: "#737373"
+personal:
+  name: ["Farabegoli, Nicolas"]
+  split: true
+  socials:
+    email:
+      username: nicolas.farabegoli@unibo.it
+      icon: envelope
+      set: fa
+      prefix: "mailto:"
+    homepage:
+      username: nicolasfarabegoli.it
+      icon: globe
+      set: fa
+      prefix: https://
+    orcid:
+      username: 0000-0002-7321-358X
+      icon: orcid
+      set: fa
+      prefix: https://orcid.org
+    # lattes:
+    #   username: "1234567891234567"
+    #   icon: lattes
+    #   set: ai
+    #   prefix: http://lattes.cnpq.br/
+    github:
+      username: nicolasfara
+      icon: github
+      set: fa
+      prefix: https://github.com/
+    linkedin:
+      username: nicolas-farabegoli
+      icon: linkedin
+      set: fa
+      prefix: https://linkedin.com/in/
