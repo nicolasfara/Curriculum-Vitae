@@ -40,7 +40,7 @@ jobs:
       - uses: typst-community/setup-typst@v4.1.0
 
       - name: build CV
-        run: typst compile nicolasfarabegoli-academic-cv.typ
+        run: typst compile nicolasfarabegoli-academic-cv.typ --font-path ~/.fontist/fonts
 
       - name: Upload PDF file
         uses: actions/upload-artifact@v4.6.2
