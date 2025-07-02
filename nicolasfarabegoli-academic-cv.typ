@@ -1,6 +1,6 @@
 // #import "modern-acad-cv.typ": *
 #import "@preview/modern-acad-cv:0.1.3": *
-#import "common.typ": cv-refs-fix
+#import "common.typ": cv-refs-fix, cv-table-teaching-fix
 
 // loading meta data and databases (needs to be ad this directory)
 #let metadata = yaml("metadata.yml") 
@@ -27,7 +27,7 @@
   multilingual,
   lang: language,   
   font: "Fira Sans",
-  show-date: true
+  show-date: false
 )    
 
 = #headerLabs.at("work")
@@ -68,29 +68,29 @@
 
 #cv-auto-list(conferences, multilingual, lang: language)
 
-== #headerLabs.at("confs-talks")
-#cv-auto(talks, multilingual, lang: language)
+// == #headerLabs.at("confs-talks")
+// #cv-auto(talks, multilingual, lang: language)
 
-= #headerLabs.at("committee")
-
-#cv-auto(committee, multilingual, lang: language)
+// = #headerLabs.at("committee")
+// #cv-auto(committee, multilingual, lang: language)
 
 = #headerLabs.at("teaching")
 
 == #headerLabs.at("teaching-thesis")
-#if language == "de" [
-  #cv-two-items[Bachelor][9][Master][2]
+#let master-thesis = 1
+#let bacherlor-thesis = 5
+
+#if language == "it" [
+  #cv-two-items[Triennale][#bacherlor-thesis][Magistrale][#master-thesis]
 ] else if language == "en" [
-  #cv-two-items[Bachelor][9][Master][2]
-] else if language == "pt" [
-  #cv-two-items[Graduação][9][Pós-Graduação][2]
+  #cv-two-items[Bachelor][#bacherlor-thesis][Master][#master-thesis]
 ] else [
-  #cv-two-items[Bachelor][9][Master][2]
+  #cv-two-items[Bachelor][#bacherlor-thesis][Master][#master-thesis]
 ]
 
 == #headerLabs.at("teaching-courses")
 
-#cv-table-teaching(teaching, multilingual, lang: language)
+#cv-table-teaching-fix(teaching, multilingual, lang: language)
 
 = #headerLabs.at("training")
 

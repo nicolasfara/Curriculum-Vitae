@@ -9,8 +9,8 @@ master:
     it: Università di Bologna
     en: University of Bologna
   description:
-    it: con lode
-    en: cum laude
+    it: 110/110 con lode
+    en: 110/110 cum laude
   left: "09/2020-03/2023"
 bachelor:
   title:
@@ -23,3 +23,14 @@ bachelor:
     it: Univeristà di Bologna
     en: University of Bologna
   left: "09/2016-03/2020"
+diploma:
+  title:
+    it: Diploma di Maturità
+    en: High School Diploma
+  subtitle:
+    it: Istituto Tecnico Tecnologico "B. Pascal"
+    en: Technical Institute "B. Pascal"
+  location:
+    it: Cesena
+    en: Cesena
+  left: "09/2011-06/2016"

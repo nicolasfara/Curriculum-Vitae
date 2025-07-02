@@ -1,32 +1,60 @@
-"2024":
+"2025":
   course1:
-    summer: T
-    name:
-      de: "Statistik+: Einstieg in R leicht gemacht"
-      en: "Statistics+: Starting with R (de)"
-      pt: "Estatística+: Começando com R (de)"
-    study:
-      de: Bachelor
-      en: Bachelor
-      pt: Graduação
-"2023":
-  course2:
     summer: F
     name:
-      de: Analyse politischer Unterstützung
-      en: Analyzing political support (de)
-      pt: Análise do apoio político (de)
+      it: "Programmazione ad Oggetti"
+      en: "Object-Oriented Programming (it)"
     study:
-      de: Master
-      en: Master
-      pt: Pós-Graduação
+      it: Triennale
+      en: Bachelor
+    role:
+      it: "Tutor"
+      en: "Tutor"
+"2024":
+  course1:
+    summer: F
+    name:
+      it: "Programmazione ad Oggetti"
+      en: "Object-Oriented Programming (it)"
+    study:
+      it: Triennale
+      en: Bachelor
+    role:
+      it: "Tutor"
+      en: "Tutor"
+"2023":
   course1:
     summer: T
     name:
-      de: Einführung in die empirische Sozialforschung
-      en: Empirical method essentials (de)
-      pt: Basicos do método empírico (de)
+      it: "Algoritmi e Strutture Dati"
+      en: "Algorithms and Data Structures (it)"
     study:
-      de: Bachelor
+      it: Triennale
       en: Bachelor
-      pt: Graduação
+    role:
+      it: "Tutor"
+      en: "Tutor"
+"2022":
+  course1:
+    summer: T
+    name:
+      it: "Algoritmi e Strutture Dati"
+      en: "Algorithms and Data Structures (it)"
+    study:
+      it: Triennale
+      en: Bachelor
+    role:
+      it: "Tutor"
+      en: "Tutor"
+"2021":
+  course1:
+    summer: T
+    name:
+      it: "Algoritmi e Strutture Dati"
+      en: "Algorithms and Data Structures (it)"
+    study:
+      it: Triennale
+      en: Bachelor
+    role:
+      it: "Tutor"
+      en: "Tutor"
