@@ -34,7 +34,7 @@ jobs:
 
       - uses: fontist/setup-fontist@v2
       - run: |
-          fontist install "Fira Code"
+          fontist install "Fira Sans"
           fontist install "Open Sans Font"
 
       - uses: typst-community/setup-typst@v4.1.0
