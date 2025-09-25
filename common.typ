@@ -1,4 +1,4 @@
-#import "@preview/fontawesome:0.5.0": *
+#import "@preview/fontawesome:0.6.0": *
 #import "@preview/modern-acad-cv:0.1.3": make-entry-apa, cv-cols, cv-cols-table
 
 #let cv-refs-fix(
