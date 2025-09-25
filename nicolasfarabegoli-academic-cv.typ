@@ -1,5 +1,5 @@
 // #import "modern-acad-cv.typ": *
-#import "@preview/modern-acad-cv:0.1.3": *
+#import "@preview/modern-acad-cv:0.1.4": *
 #import "common.typ": cv-refs-fix, cv-table-teaching-fix
 
 // loading meta data and databases (needs to be ad this directory)
