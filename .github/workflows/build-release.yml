@@ -37,7 +37,7 @@ jobs:
           fontist install "Fira Sans"
           fontist install "Open Sans Font"
 
-      - uses: typst-community/setup-typst@v4.2.0
+      - uses: typst-community/setup-typst@v4.3.0
 
       - name: build CV
         run: typst compile nicolasfarabegoli-academic-cv.typ --font-path ~/.fontist/fonts
